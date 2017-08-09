@@ -1,7 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 #for webdriver + interactions
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 #for explicit wait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,9 +13,7 @@ import os
 #for date manipulation
 from datetime import datetime
 
-DR_LIC_NUM = "HOWEL905135BS9BD"
-APP_REF_NUM = '35736540'
-CURRENT_TEST_TEXT = "Friday 23 September 2016 12:58pm"
+from info import DR_LIC_NUM, APP_REF_NUM, CURRENT_TEST_TEXT
 CURRENT_TEST_DATETIME = datetime.strptime(CURRENT_TEST_TEXT, "%A %d %B %Y %I:%M%p")
 
 #request user solution
@@ -66,7 +63,7 @@ def deal_with_captcha(driver):
 #dealing with captchas if they arise
 def extract_raw_HTML_tag_list():
 	#open browser
-	driver = webdriver.Chrome('/Users/Blake/Documents/Udacity/chromedriver')
+	driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')
 
 	#go to landing page, find button to next page and click
 	landing_page = driver.get("https://www.gov.uk/change-driving-test")
